@@ -1,0 +1,6 @@
+# IDE
+.devcontainer
+.vscode
+
+# AOC
+input/*/full.txt
