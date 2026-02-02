@@ -2,14 +2,13 @@ package utils
 
 import (
 	"bufio"
-	"log"
 	"os"
 )
 
-func ReadLines(filePath string) []string {
+func ReadLines(filePath string) ([]string, error) {
 	file, err := os.Open(filePath)
 	if err != nil {
-		log.Fatal(err)
+		return nil, err
 	}
 	defer file.Close()
 
@@ -19,5 +18,5 @@ func ReadLines(filePath string) []string {
 		lines = append(lines, scanner.Text())
 	}
 
-	return lines
+	return lines, nil
 }

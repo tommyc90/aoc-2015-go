@@ -4,12 +4,14 @@ import (
 	"fmt"
 
 	"github.com/tommyc90/aoc-2015-go/internal/solutions/day01"
+	"github.com/tommyc90/aoc-2015-go/internal/solutions/day02"
 )
 
 var registry = make(map[string]Solver)
 
 func init() {
 	register("1", day01.New())
+	register("2", day02.New())
 }
 
 func register(day string, solver Solver) {

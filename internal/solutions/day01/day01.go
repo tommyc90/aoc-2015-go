@@ -33,9 +33,13 @@ func (s *Solver) SolvePart2(filePath string) {
 }
 
 func readDirections(filePath string) string {
-	lines := utils.ReadLines(filePath)
+	lines, err := utils.ReadLines(filePath)
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	if len(lines) != 1 {
-		log.Fatal("Invalid input, expecting only single line of directions")
+		log.Fatal("invalid input: expecting only single line of directions")
 	}
 
 	return lines[0]
