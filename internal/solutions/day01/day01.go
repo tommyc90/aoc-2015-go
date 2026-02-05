@@ -15,7 +15,12 @@ func New() *Solver {
 }
 
 func (s *Solver) SolvePart1(filePath string) {
-	result, err := part1(readDirections(filePath))
+	dirs, err := utils.ReadSingleLine(filePath)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	result, err := part1(dirs)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -24,25 +29,17 @@ func (s *Solver) SolvePart1(filePath string) {
 }
 
 func (s *Solver) SolvePart2(filePath string) {
-	result, err := part2(readDirections(filePath))
+	dirs, err := utils.ReadSingleLine(filePath)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	result, err := part2(dirs)
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	fmt.Println(result)
-}
-
-func readDirections(filePath string) string {
-	lines, err := utils.ReadLines(filePath)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	if len(lines) != 1 {
-		log.Fatal("invalid input: expecting only single line of directions")
-	}
-
-	return lines[0]
 }
 
 func part1(directions string) (int, error) {
