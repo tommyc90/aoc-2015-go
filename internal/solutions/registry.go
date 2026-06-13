@@ -12,6 +12,7 @@ import (
 	"github.com/tommyc90/aoc-2015-go/internal/solutions/day07"
 	"github.com/tommyc90/aoc-2015-go/internal/solutions/day08"
 	"github.com/tommyc90/aoc-2015-go/internal/solutions/day09"
+	"github.com/tommyc90/aoc-2015-go/internal/solutions/day10"
 )
 
 var registry = make(map[string]Solver)
@@ -26,6 +27,7 @@ func init() {
 	register("7", day07.New())
 	register("8", day08.New())
 	register("9", day09.New())
+	register("10", day10.New())
 }
 
 func register(day string, solver Solver) {
